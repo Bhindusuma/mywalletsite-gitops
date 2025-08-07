@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: walletapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Bhindusuma/mywalletsite-gitops
+    targetRevision: HEAD
+    path: walletapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
