@@ -13,6 +13,10 @@ image:
   pullPolicy: Always
   tag: v0.0.5
 
+# walletapp/values.yaml
+env:
+  - name: ALLOWED_HOSTS
+    value: "*"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
