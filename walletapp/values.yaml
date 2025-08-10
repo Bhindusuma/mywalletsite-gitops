@@ -11,7 +11,7 @@ replicaCount: 1
 image:
   repository: bhindusuma/mywalletapp
   pullPolicy: Always
-  tag: v0.0.5
+  tag: v0.0.6
 
 # walletapp/values.yaml
 env:
