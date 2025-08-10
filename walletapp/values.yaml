@@ -5,11 +5,13 @@
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1
 
+
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+
 image:
   repository: bhindusuma/mywalletapp
-  tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
+  tag: v0.0.5
 
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
@@ -51,7 +53,11 @@ securityContext: {}
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+<<<<<<< HEAD
   type: NodePort
+=======
+  type: ClusterIP
+>>>>>>> 305e091 (walletapp: use image v0.0.5 and Always pull)
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
 
