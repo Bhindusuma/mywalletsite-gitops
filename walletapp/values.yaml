@@ -15,8 +15,10 @@ image:
 
 # walletapp/values.yaml
 env:
-  - name: ALLOWED_HOSTS
-    value: "*"
+  - name: DJANGO_ALLOWED_HOSTS
+    value: "35.175.138.29,127.0.0.1,localhost"
+  - name: DJANGO_CSRF_TRUSTED_ORIGINS
+    value: "http://35.175.138.29,http://35.175.138.29:32110,http://localhost,http://127.0.0.1"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
