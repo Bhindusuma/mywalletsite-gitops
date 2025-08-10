@@ -11,7 +11,7 @@ replicaCount: 1
 image:
   repository: bhindusuma/mywalletapp
   pullPolicy: Always
-  tag: v0.0.7
+  tag: v0.0.8
 
 # walletapp/values.yaml
 env:
@@ -131,3 +131,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+env:
+  - name: DJANGO_ALLOWED_HOSTS
+    value: "35.175.138.29,127.0.0.1,localhost"
+  - name: DJANGO_CSRF_TRUSTED_ORIGINS
+    value: "http://35.175.138.29,http://35.175.138.29:32110,http://localhost,http://127.0.0.1"
