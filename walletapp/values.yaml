@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: bhindusuma/mywalletapp
   pullPolicy: Always
-  tag: v0.0.8
+  tag: v0.1.0
 
 serviceAccount:
   create: true
@@ -18,24 +18,19 @@ service:
 
 # env MUST be a map because the template iterates map keys/values
 env:
-  DJANGO_ALLOWED_HOSTS: "*"   # allow everywhere
+  DJANGO_ALLOWED_HOSTS: "*"
   DJANGO_CSRF_TRUSTED_ORIGINS: "http://localhost,http://127.0.0.1"
 
 resources: {}
 
+# TCP probes to avoid app-returned 400/500 blocking readiness
 livenessProbe:
   tcpSocket:
     port: http
-    httpHeaders:
-      - name: Host
-        value: localhost
 
 readinessProbe:
   tcpSocket:
     port: http
-    httpHeaders:
-      - name: Host
-        value: localhost
 
 volumes: []
 volumeMounts: []
