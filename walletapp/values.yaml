@@ -46,3 +46,11 @@ ingress:
   annotations: {}
   hosts: []
   tls: []
+
+# HPA defaults (avoid nil pointer in templates)
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
