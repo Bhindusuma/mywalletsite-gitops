@@ -24,16 +24,14 @@ env:
 resources: {}
 
 livenessProbe:
-  httpGet:
-    path: /
+  tcpSocket:
     port: http
     httpHeaders:
       - name: Host
         value: localhost
 
 readinessProbe:
-  httpGet:
-    path: /
+  tcpSocket:
     port: http
     httpHeaders:
       - name: Host
