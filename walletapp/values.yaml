@@ -27,11 +27,17 @@ livenessProbe:
   httpGet:
     path: /
     port: http
+    httpHeaders:
+      - name: Host
+        value: localhost
 
 readinessProbe:
   httpGet:
     path: /
     port: http
+    httpHeaders:
+      - name: Host
+        value: localhost
 
 volumes: []
 volumeMounts: []
@@ -39,7 +45,7 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
-# Ingress defaults (avoid nil pointer in templates)
+# Ingress defaults
 ingress:
   enabled: false
   className: ""
@@ -47,7 +53,7 @@ ingress:
   hosts: []
   tls: []
 
-# HPA defaults (avoid nil pointer in templates)
+# HPA defaults
 autoscaling:
   enabled: false
   minReplicas: 1
