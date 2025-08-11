@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: bhindusuma/mywalletapp
   pullPolicy: Always
-  tag: v0.1.0
+  tag: v0.1.1
 
 serviceAccount:
   create: true
