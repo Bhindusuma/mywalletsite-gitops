@@ -1,12 +1,40 @@
+replicaCount: 1
+
 image:
   repository: bhindusuma/mywalletapp
-  tag: v0.1.0
+  pullPolicy: Always
+  tag: v0.0.8
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
 
 service:
   type: NodePort
   port: 80
-  nodePort: 32110   # if your Service template uses this; OK to leave if ignored
+  nodePort: 32110
 
+# env MUST be a map because the template iterates map keys/values
 env:
-  DJANGO_ALLOWED_HOSTS: "35.175.138.29,127.0.0.1,localhost"
-  DJANGO_CSRF_TRUSTED_ORIGINS: "http://35.175.138.29,http://35.175.138.29:32110,http://localhost,http://127.0.0.1"
+  DJANGO_ALLOWED_HOSTS: "*"   # allow everywhere
+  DJANGO_CSRF_TRUSTED_ORIGINS: "http://localhost,http://127.0.0.1"
+
+resources: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+tolerations: []
+affinity: {}
